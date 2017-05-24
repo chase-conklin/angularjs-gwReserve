@@ -1,0 +1,42 @@
+<link href="/www/app/partials/exercise.css" rel="stylesheet" />
+
+<div class="ui container">
+	<div class="ui horizontal divider">
+		Exercise 1
+	</div>
+
+	<div>
+		<a href="/exercise2">Go To Exercise 2</a>
+		<button ng-click="ctrl.exerciseService.login()">Login</button>
+		{{ ctrl.exerciseService.getLoggedInUser() | json }}
+		<button ng-click="ctrl.exerciseService.logout()">Logout</button>
+	</div>
+
+	<div ng-repeat="student in ctrl.students | orderBy: 'name'">
+		{{ student.name }}
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to a &quot;title&quot; property here:
+		<b>{{ ::ctrl.title }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		One-time bind to &quot;title&quot; here and make it upper-case (don't touch controller property):
+		<b>{{ ::ctrl.title | uppercase }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		Bind (not one-time) to &quot;title&quot; here:
+		<b>{{ ctrl.title }}</b>
+	</div>
+
+	<div class="spacedDiv">
+		Initialize the &quot;title&quot; here.  Right here.  There's a directive for that.  I'll tell you.  It's called... GOOGLE.
+	</div>
+
+	<div class="spacedDiv" ng-click="ctrl.clickAction()">
+		Allow the user to change the title here:
+		<input type="text" ng-model="ctrl.title">
+	</div>
+</div>

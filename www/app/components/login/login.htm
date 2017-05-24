@@ -1,0 +1,63 @@
+<!-- <link rel="stylesheet" href="www/app/components/login/login.css"> -->
+
+<!-- <div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui image header">
+      <img src="www/assets/images/angularicon.png" class="image logo">
+      <div class="content">
+        Log-in to your account
+      </div>
+    </h2>
+    <form class="ui large form">
+      <div class="ui stacked segment">
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input ng-model="user.name" type="text" name="userName" placeholder="User Name">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="ui fluid large black submit button" ng-click="ctrl.loginService.login(user.name)">Login</div>
+      </div>
+
+      <div class="ui error message"></div>
+
+    </form>
+
+    <div class="ui message">
+      New to us? <a href="#">Sign Up</a>
+    </div>
+  </div>
+</div> -->
+
+<div class="contentPanel login">
+	<div class="ui middle aligned center aligned grid buttonGrid">
+		<div class="row">
+			<div class="column">
+				<img class="ui large centered circular image" ng-src="{{ctrl.loginService.getLoggedInUser().photoURL}}"</img>
+				<h1 class="ui header">{{ctrl.loginService.getLoggedInUser().displayName}}</h1>
+				<button class="ui large left attached button"
+						ng-click="ctrl.loginService.login(ctrl.refresh)"
+						ng-diabled="ctrl.loginService.getLoggedInUser()">
+						Login
+				</button>
+				<button class="ui large right attached button"
+						ng-click="ctrl.loginService.logout()"
+						ng-disabled="!ctrl.loginService.getLoggedInUser()">
+						Logout
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--<div>
+    <button ng-click="ctrl.loginService.login()">Login</button>
+    {{ ctrl.loginService.getLoggedInUser() | json }}
+    <button ng-click = "ctrl.loginService.logout()">Logout</button>
+</div>-->

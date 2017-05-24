@@ -1,0 +1,29 @@
+<!-- <link rel="stylesheet" href="www/app/components/navigation/navigation.css"> -->
+
+<div class="ui inverted segment">
+  <div class="ui inverted secondary pointing menu">
+    <a class="item"
+    ng-repeat="navItem in ctrl.navigationService.getNavigation()"
+    ng-href="{{navItem.url}}"
+    ng-class="{ 'active': ctrl.isItemActive(navItem.url) }">
+    {{navItem.title}}
+    </a>
+    <div class="right menu">
+      <a class="ui item" ng-if="ctrl.loginService.getLoggedInUser().displayName !== undefined" ng-href="/login">
+        <img class="ui avatar image" ng-src="{{ctrl.loginService.getLoggedInUser().photoURL}}">
+        <span>{{ ctrl.loginService.getLoggedInUser().displayName }}</span>
+      </a>
+      <a class="ui item"
+      ng-class="{ 'active': ctrl.isItemActive('/login')}"
+      ng-show="ctrl.loginService.getLoggedInUser().displayName == undefined"
+      ng-href="/login">
+      Login
+      </a>
+      <a class="ui item"
+      ng-show="ctrl.loginService.getLoggedInUser().displayName !== undefined"
+      ng-click="ctrl.loginService.logout()">
+      Logout
+      </a>
+    </div>
+  </div>
+</div>

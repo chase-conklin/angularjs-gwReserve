@@ -1,0 +1,16 @@
+<div class="contentPanel room">
+    <div class="ui container">
+        <gw-room-reservation-header room="{{ ctrl.room.name }}"></gw-room-reservation-header>
+
+        <div class="ui padded grid">
+            <div class="two column row">
+                <div class="column">
+                    <gw-room-reservation-list></gw-room-reservation-list>
+                </div>
+                <div class="column">
+                    <gw-room-reservation-form room="ctrl.room"></gw-room-reservation-form>
+                </div>
+            </div>
+        </div>    
+    </div>
+</div>
